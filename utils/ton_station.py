@@ -20,7 +20,6 @@ class TonStation:
         self.thread = thread
 
         self.user_id, self.user_info = None, None
-        self.sp = 'ref_buzjtu7gvm6eyna393psdl'
         self.proxy = f"{config.PROXY['TYPE']['REQUESTS']}://{proxy}" if proxy is not None else None
         connector = ProxyConnector.from_url(self.proxy) if proxy else aiohttp.TCPConnector(verify_ssl=False)
 
@@ -72,9 +71,9 @@ class TonStation:
 
     async def task_start(self, project: str, quest_id: str):
         json_data = {
-          "project": project,
-          "userId": self.user_id,
-          "questId": quest_id
+            "project": project,
+            "userId": self.user_id,
+            "questId": quest_id
         }
 
         resp = await self.session.post(f'https://tonstation.app/quests/api/v1/start', json=json_data)
@@ -117,7 +116,6 @@ class TonStation:
         attempts = 3
         while attempts:
             try:
-                self.sp = 'ref_c5xdxw4chx7duptkojrjq5'
                 await asyncio.sleep(random.uniform(*config.DELAYS['ACCOUNT']))
                 query = await self.get_tg_web_data()
 
@@ -162,7 +160,7 @@ class TonStation:
                 app=InputBotAppShortName(bot_id=await self.client.resolve_peer('tonstationgames_bot'), short_name="app"),
                 platform='android',
                 write_allowed=True,
-                start_param=self.sp
+                start_param=config.REF
             ))
             await self.client.disconnect()
             auth_url = web_view.url

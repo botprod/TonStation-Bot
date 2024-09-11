@@ -2,6 +2,8 @@
 API_ID = 1488
 API_HASH = 'abcde1488'
 
+REF = 'ref_x8sxbzkurexdzuw2bqyw6v'
+
 DELAYS = {
     "RELOGIN": [5, 7],  # delay after a login attempt
     'ACCOUNT': [5, 15],  # delay between connections to accounts (the more accounts, the longer the delay)
@@ -31,5 +33,4 @@ Soft for https://t.me/tonstationgames_bot
 Register accounts in web app; start and claim farming; 
 
 The soft also collects statistics on accounts and uses proxies from {f"the {PROXY['PROXY_PATH']} file" if PROXY['USE_PROXY_FROM_FILE'] else "the accounts.json file"}
-To buy this soft with the option to set your referral link write me: https://t.me/Axcent_ape
 """
